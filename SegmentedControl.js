@@ -23,6 +23,7 @@ export default class SegmentedControl extends Component {
         itemTextColor : '#5E89F7',
         itemButtonViewStyle : undefined,
         itemButtonBorderColor : '#5E89F7',
+        itemButtonBorderActiveColor : '#5E89F7',
         itemHeaderViewStyle : undefined,
     };
 
@@ -38,6 +39,7 @@ export default class SegmentedControl extends Component {
         onItemSelected: React.PropTypes.func,
         itemButtonViewStyle : View.propTypes.style,
         itemButtonBorderColor: React.PropTypes.string,
+        itemButtonBorderActiveColor: React.PropTypes.string,
         itemHeaderViewStyle : View.propTypes.style,
     };
 
@@ -63,6 +65,7 @@ export default class SegmentedControl extends Component {
         const contentViews = children.map((child,i) => {
             const buttonColor = this.state.selectedIndex == i ? this.props.itemButtonActiveColor : this.props.itemButtonColor;
             const textColor = this.state.selectedIndex == i ? this.props.itemTextActiveColor : this.props.itemTextColor;
+            const borderColor = this.state.selectedIndex == i ? this.props.itemButtonBorderActiveColor : this.props.itemButtonBorderColor;
 
             navs[i] = (
                 <TouchableOpacity
@@ -74,7 +77,7 @@ export default class SegmentedControl extends Component {
                         {backgroundColor:buttonColor},
                         i==0 ? {borderTopLeftRadius:5,borderBottomLeftRadius:5}:undefined,
                         i==childrenLength-1 ? {borderTopRightRadius:5,borderBottomRightRadius:5}:undefined,
-                        {borderColor:this.props.itemButtonBorderColor}
+                        {borderColor:borderColor}
                     ]}
                     onPress={() => {
                         if (child.props.onPress) {
