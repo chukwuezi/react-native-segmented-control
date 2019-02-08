@@ -8,7 +8,7 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import React, {Component} from 'react'
-
+import PropTypes from 'prop-types'
 import SegmentedControlItem from './SegmentedControlItem';
 
 export default class SegmentedControl extends Component {
@@ -28,19 +28,19 @@ export default class SegmentedControl extends Component {
     };
 
     static propTypes = {
-        ...View.propTypes,
-        style: View.propTypes.style,
-        defaultPage: React.PropTypes.number,
-        itemFontSize: React.PropTypes.number,
-        itemButtonActiveColor: React.PropTypes.string,
-        itemButtonColor: React.PropTypes.string,
-        itemTextActiveColor: React.PropTypes.string,
-        itemTextColor: React.PropTypes.string,
-        onItemSelected: React.PropTypes.func,
-        itemButtonViewStyle : View.propTypes.style,
-        itemButtonBorderColor: React.PropTypes.string,
-        itemButtonBorderActiveColor: React.PropTypes.string,
-        itemHeaderViewStyle : View.propTypes.style,
+        ...PropTypes,
+        style: PropTypes.style,
+        defaultPage: PropTypes.number,
+        itemFontSize: PropTypes.number,
+        itemButtonActiveColor: PropTypes.string,
+        itemButtonColor: PropTypes.string,
+        itemTextActiveColor: PropTypes.string,
+        itemTextColor: PropTypes.string,
+        onItemSelected: PropTypes.func,
+        itemButtonViewStyle : PropTypes.style,
+        itemButtonBorderColor: PropTypes.string,
+        itemButtonBorderActiveColor: PropTypes.string,
+        itemHeaderViewStyle : PropTypes.style,
     };
 
     constructor(props) {
